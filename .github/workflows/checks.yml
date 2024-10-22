@@ -21,13 +21,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
       - name: Set environment variables
         run: |
-          echo "DB_HOST=db" >> $GITHUB_ENV
-          echo "DB_NAME=appdb" >> $GITHUB_ENV
-          echo "DB_USER=appuser" >> $GITHUB_ENV
-          echo "DB_PASS=apppassword" >> $GITHUB_ENV
+          echo "DB_HOST=${{ vars.DB_HOST }}" >> $GITHUB_ENV
+          echo "DB_NAME=${{ vars.DB_NAME }}" >> $GITHUB_ENV
+          echo "DB_USER=${{ vars.DB_USER }}" >> $GITHUB_ENV
+          echo "DB_PASS=${{ vars.DB_PASS }}" >> $GITHUB_ENV
 
       - name: Run Test
         run: |
