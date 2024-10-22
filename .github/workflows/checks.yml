@@ -22,9 +22,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Set environment variables
         run: |
           echo "DB_HOST=db" >> $GITHUB_ENV
